@@ -18,7 +18,7 @@ exports.sessionConverter = {
       week: parseInt(sessionDate.format('WW')),
       score: 0 // legacy - TODO to be removed when removing /gym
     };
-  }
+  },
 
   /**
    * Creates the transfer object from the PO
