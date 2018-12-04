@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var logger = require('toto-apimon-events');
 
 var postSession = require('./dlg/PostSession');
+var getSessions = require('./dlg/GetSessions');
 
 var apiName = 'training-session';
 
@@ -22,7 +23,7 @@ app.use(bodyParser.json());
  ***************/
 app.get('/', function(req, res) {res.send({api: apiName, status: 'running'});});
 
-app.post('/sessions', function(req, res) {logger.apiCalled(apiName, '/sessions', 'POST', req.query, req.params, req.body); postSession.do(req.body).then(function(result) {res.send(result);});});
+app.post('/sessions', function(req, res) {logger.apiCalled(apiName, '/sessions', 'POST', req.query, req.params, req.body); postSessions.do(req.body).then(function(result) {res.send(result);});});
 app.get('/sessions', function(req, res) {logger.apiCalled(apiName, '/sessions', 'GET', req.query, req.params, req.body); getSessions.do(req.query).then(function(result) {res.send(result);});});
 
 // app.get('/sessions/:id', function(req, res) {logger.apiCalled(apiName, '/sessions/{id}', 'GET', req.query, req.params, req.body); getSession.do(req.params.id).then(function(result) {res.send(result);});});
