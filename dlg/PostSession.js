@@ -11,7 +11,7 @@ exports.do = function(data) {
     return MongoClient.connect(config.mongoUrl, function(err, db) {
 
       // 1. Convert the data
-      let po = converter.sessionPO(data);
+      let po = converter.converter.sessionPO(data);
 
       // 2. Insert the data
       db.db(config.dbName).collection(config.collections.sessions)

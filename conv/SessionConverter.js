@@ -1,6 +1,6 @@
 var moment = require('moment-timezone');
 
-exports.sessionConverter = {
+exports.converter = {
 
   /**
    * Creates the persistent object

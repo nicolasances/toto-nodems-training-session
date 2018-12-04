@@ -36,7 +36,7 @@ exports.do = function(filters) {
 
         var sessions = [];
         for (var i = 0; i < array.length; i++) {
-          sessions.push(converter.sessionTO(array[i]));
+          sessions.push(converter.converter.sessionTO(array[i]));
         }
 
         success({sessions: sessions});
