@@ -14,9 +14,6 @@ exports.do = function(id) {
       db.db(config.dbName).collection(config.collections.sessions)
                           .findOne({_id: new mongo.ObjectId(id)}, function(err, doc) {
 
-                            console.log(err);
-                            console.log(doc);
-
         db.close();
 
         success(converter.converter.sessionTO(doc));

@@ -28,6 +28,7 @@ exports.converter = {
     if (data == null) return {};
 
     return {
+      id: data._id,
       date: data.date,
       planId: data.planId,
       workouts: data.workouts,
