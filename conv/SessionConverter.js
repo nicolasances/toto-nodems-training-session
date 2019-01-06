@@ -3,7 +3,7 @@ var moment = require('moment-timezone');
 exports.converter = {
 
   /**
-   * Creates the persistent object
+   * Creates the persistent object from a JSON object
    */
   sessionPO: function(data) {
 
