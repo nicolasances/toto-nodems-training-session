@@ -6,8 +6,6 @@ var MongoClient = mongo.MongoClient;
 
 exports.do = function(id) {
 
-  console.log(id);
-
   return new Promise(function(success, failure) {
 
     return MongoClient.connect(config.mongoUrl, function(err, db) {
@@ -15,6 +13,9 @@ exports.do = function(id) {
       // Fetch the data!
       db.db(config.dbName).collection(config.collections.sessions)
                           .findOne({_id: new mongo.ObjectId(id)}, function(err, doc) {
+
+                            console.log(err);
+                            console.log(doc);
 
         db.close();
 
