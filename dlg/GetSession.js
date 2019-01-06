@@ -12,17 +12,11 @@ exports.do = function(id) {
 
       // Fetch the data!
       db.db(config.dbName).collection(config.collections.sessions)
-                          .find({_id: new mongo.ObjectId(id)})
-                          .toArray(function(err, array) {
+                          .findOne({_id: new mongo.ObjectId(id)}, function(err, doc) {
 
         db.close();
 
-        if (array == null || array.length == 0) {
-          success({});
-          return;
-        }
-
-        success(converter.converter.sessionTO(array[0]));
+        success(converter.converter.sessionTO(doc));
 
       });
     });
