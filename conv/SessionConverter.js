@@ -25,6 +25,8 @@ exports.converter = {
    */
   sessionTO: function(data) {
 
+    if (data == null) return {};
+
     return {
       date: data.date,
       planId: data.planId,

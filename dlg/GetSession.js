@@ -6,6 +6,8 @@ var MongoClient = mongo.MongoClient;
 
 exports.do = function(id) {
 
+  console.log(id);
+
   return new Promise(function(success, failure) {
 
     return MongoClient.connect(config.mongoUrl, function(err, db) {
