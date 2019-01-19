@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 
 // Smoke test and documentation for the API
 app.get('/', function(req, res) {res.send({api: apiName, status: 'running'});});
-app.get('/docs', function(req, res) {docGenerator.do().then((data) => {res.send(200).type('application/json').send(data)})});
+app.get('/docs', function(req, res) {docGenerator.do().then((data) => {res.status(200).type('application/json').send(data)})});
 
 // APIs
 app.post('/sessions', function(req, res) {logger.apiCalled(apiName, '/sessions', 'POST', req.query, req.params, req.body); postSessions.do(req.body).then(function(result) {res.send(result);});});
