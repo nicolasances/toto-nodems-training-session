@@ -4,7 +4,10 @@ var converter = require('../../conv/ExConverter');
 
 var MongoClient = mongo.MongoClient;
 
-exports.do = function(eId, body) {
+exports.do = function(request) {
+
+  var eId = request.params.eid;
+  var body = request.body;
 
   return new Promise(function(success, failure) {
 

@@ -4,7 +4,9 @@ var converter = require('../conv/SessionConverter');
 
 var MongoClient = mongo.MongoClient;
 
-exports.do = function(filters) {
+exports.do = function(request) {
+
+  var filters = request.query;
 
   return new Promise(function(success, failure) {
 

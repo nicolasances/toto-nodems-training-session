@@ -4,7 +4,9 @@ var converter = require('../../conv/ExConverter');
 
 var MongoClient = mongo.MongoClient;
 
-exports.do = function(sessionId) {
+exports.do = function(request) {
+
+  var sessionId = request.params.id;
 
   return new Promise(function(success, failure) {
 
