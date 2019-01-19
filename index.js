@@ -2,6 +2,8 @@ var express = require('express');
 var Promise = require('promise');
 var bodyParser = require("body-parser");
 var logger = require('toto-apimon-events');
+var docGenerator = require('./DocGenerator');
+
 
 var postSession = require('./dlg/PostSession');
 var getSessions = require('./dlg/GetSessions');
@@ -19,11 +21,11 @@ app.use(function(req, res, next) {
 });
 app.use(bodyParser.json());
 
-/***************
- * APIS
- ***************/
+// Smoke test and documentation for the API
 app.get('/', function(req, res) {res.send({api: apiName, status: 'running'});});
+app.get('/docs', function(req, res) {docGenerator.do().then((data) => {res.send(200).type('application/json').send(data)}))});
 
+// APIs
 app.post('/sessions', function(req, res) {logger.apiCalled(apiName, '/sessions', 'POST', req.query, req.params, req.body); postSessions.do(req.body).then(function(result) {res.send(result);});});
 app.get('/sessions', function(req, res) {logger.apiCalled(apiName, '/sessions', 'GET', req.query, req.params, req.body); getSessions.do(req.query).then(function(result) {res.send(result);});});
 
