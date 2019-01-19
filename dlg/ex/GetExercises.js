@@ -1,5 +1,5 @@
 var mongo = require('mongodb');
-var config = require('../config');
+var config = require('../../config');
 var converter = require('../../conv/ExConverter');
 
 var MongoClient = mongo.MongoClient;
