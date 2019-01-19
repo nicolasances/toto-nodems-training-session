@@ -12,6 +12,8 @@ var deleteSession = require('./dlg/DeleteSession');
 var getSessionExercises = require('./dlg/ex/GetExercises');
 var postSessionExercise = require('./dlg/ex/PostExercise');
 var getSessionExercise = require('./dlg/ex/GetExercise');
+var putSessionExercise = require('./dlg/ex/PutExercise');
+var deleteSessionExercise = require('./dlg/ex/DeleteExercise');
 
 var apiName = 'training-session';
 
@@ -39,7 +41,8 @@ app.get('/sessions/:id/exercises', function(req, res) {logger.apiCalled(apiName,
 app.post('/sessions/:id/exercises', function(req, res) {logger.apiCalled(apiName, '/sessions/{id}/exercises', 'POST', req.query, req.params, req.body); postSessionExercise.do(req.params.id, req.body).then(function(result) {res.send(result);});});
 
 app.get('/sessions/:id/exercises/:eid', function(req, res) {logger.apiCalled(apiName, '/sessions/{id}/exercises/{eid}', 'GET', req.query, req.params, req.body); getSessionExercise.do(req.params.eid).then(function(result) {res.send(result);});});
-// app.put('/sessions/:id/exercises/:eid', function(req, res) {logger.apiCalled(apiName, '/sessions/{id}/exercises/{eid}', 'PUT', req.query, req.params, req.body); putSessionExercise.do(req.params.eid, req.body).then(function(result) {res.send(result);});});
+app.put('/sessions/:id/exercises/:eid', function(req, res) {logger.apiCalled(apiName, '/sessions/{id}/exercises/{eid}', 'PUT', req.query, req.params, req.body); putSessionExercise.do(req.params.eid, req.body).then(function(result) {res.send(result);});});
+app.delete('/sessions/:id/exercises/:eid', function(req, res) {logger.apiCalled(apiName, '/sessions/{id}/exercises/{eid}', 'DELETE', req.query, req.params, req.body); deleteSessionExercise.do(req.params.eid).then(function(result) {res.send(result);});});
 
 /***********
  * START

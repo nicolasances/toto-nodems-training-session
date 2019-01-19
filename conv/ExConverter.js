@@ -34,10 +34,37 @@ exports.converter = {
     to.id = data._id;
 
     return to;
+  },
+
+  /**
+   * Updates the exercise with the provided data
+   */
+  update: function(body) {
+
+    if (body == null) return {$set: {}};
+
+    let data = {};
+
+    if (body.completed != null) data.completed = body.completed;
+    if (body.sets != null) data.sets = body.sets;
+    if (body.reps != null) data.reps = body.reps;
+    if (body.reps1 != null) data.reps1 = body.reps1;
+    if (body.reps2 != null) data.reps2 = body.reps2;
+    if (body.reps3 != null) data.reps3 = body.reps3;
+    if (body.weight != null) data.weight = body.weight;
+    if (body.weight1 != null) data.weight1 = body.weight1;
+    if (body.weight2 != null) data.weight2 = body.weight2;
+    if (body.weight3 != null) data.weight3 = body.weight3;
+    if (body.ex1 != null) data.ex1 = body.ex1;
+    if (body.ex2 != null) data.ex2 = body.ex2;
+
+    return {$set: data};
+
   }
 
 }
 
+// EXERCISES TYPES CONVERSIONS
 var single = (data) => {
   return {
       planId: data.planId,
