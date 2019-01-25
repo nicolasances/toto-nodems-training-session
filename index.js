@@ -1,6 +1,7 @@
 var express = require('express');
 var logger = require('toto-apimon-events');
 var Controller = require('toto-api-controller');
+var totoEventPublisher = require('toto-event-publisher');
 
 var postSession = require('./dlg/PostSession');
 var getSessions = require('./dlg/GetSessions');
@@ -13,9 +14,12 @@ var getSessionExercise = require('./dlg/ex/GetExercise');
 var putSessionExercise = require('./dlg/ex/PutExercise');
 var deleteSessionExercise = require('./dlg/ex/DeleteExercise');
 
+// Register the topics
+totoEventPublisher.registerTopic({topicName: 'trainingSessionsCreated', microservice: 'training-session'}).then(() => {}, (err) => {console.log(err);});
+
 var app = express();
 
-var api = new Controller('training-session', app);
+var api = new Controller('training-session', app, totoEventPublisher);
 
 // APIs
 api.path('GET', '/sessions', getSessions);

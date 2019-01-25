@@ -11,7 +11,6 @@ exports.converter = {
 
     return {
       date: data.date,
-      planId: data.planId,
       workouts: data.workouts,
       completed: false,
       year: parseInt(sessionDate.format('YYYY')),
@@ -30,7 +29,6 @@ exports.converter = {
     return {
       id: data._id,
       date: data.date,
-      planId: data.planId,
       workouts: data.workouts,
       completed: data.completed,
       year: data.year,
