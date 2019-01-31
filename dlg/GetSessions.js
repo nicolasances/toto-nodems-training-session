@@ -23,15 +23,18 @@ exports.do = function(request) {
 
       // Filtering
       // Filter per workoutId
+      let workoutFilter = {};
       if (filters.workoutId != null) {
 
-        filter.push({
+        workoutFilter = {
           '$or': {
             workoutId: filters.workoutId,
             'workouts.workoutId': filters.workoutId
           }
-        });
+        };
       }
+
+      filter = workoutFilter;
 
       // Max results
       if (filters.maxResults != null) options.limit = parseInt(filters.maxResults);
