@@ -1,7 +1,7 @@
 var mongo = require('mongodb');
 var config = require('../config');
 var converter = require('../conv/SessionConverter');
-var totoEventPublisher = require('../TotoEventPublisher');
+var totoEventPublisher = require('toto-event-publisher');
 
 var MongoClient = mongo.MongoClient;
 
