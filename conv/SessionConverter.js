@@ -26,10 +26,17 @@ exports.converter = {
 
     if (data == null) return {};
 
+    let workouts = [];
+
+    // Old sessions admitted a single workout per session
+    if (data.workoutId != null) workouts.push({planId: data.planId, workoutId: data.workoutId});
+    // while new sessions admit more workouts per session
+    else workouts = data.workouts;
+
     return {
       id: data._id,
       date: data.date,
-      workouts: data.workouts,
+      workouts: workouts,
       completed: data.completed,
       year: data.year,
       week: data.week
