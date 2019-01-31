@@ -28,8 +28,8 @@ exports.do = function(request) {
 
         workoutFilter = {
           '$or': [
-            workoutId: filters.workoutId,
-            'workouts.workoutId': filters.workoutId
+            {workoutId: filters.workoutId},
+            {'workouts.workoutId': filters.workoutId}
           ]
         };
       }
