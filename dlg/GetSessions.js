@@ -22,8 +22,16 @@ exports.do = function(request) {
       if (filters.sort == 'date') options.sort.push(['date', filters.sortDir == 'desc' ? 'descending' : 'asc']);
 
       // Filtering
-      if (filters.workoutId != null) filter.workoutId = filters.workoutId;
-      if (filters.planId != null) filter.planId = filters.planId;
+      // Filter per workoutId
+      if (filters.workoutId != null) {
+
+        filter.push({
+          '$or': {
+            workoutId: filters.workoutId,
+            'workouts.workoutId': filters.workoutId
+          }
+        });
+      }
 
       // Max results
       if (filters.maxResults != null) options.limit = parseInt(filters.maxResults);
