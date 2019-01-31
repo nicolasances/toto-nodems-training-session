@@ -21,6 +21,10 @@ exports.do = function(request) {
 
       if (filters.sort == 'date') options.sort.push(['date', filters.sortDir == 'desc' ? 'descending' : 'asc']);
 
+      // Filtering
+      if (filters.workoutId != null) filter.workoutId = filters.workoutId;
+      if (filters.planId != null) filter.planId = filters.planId;
+
       // Max results
       if (filters.maxResults != null) options.limit = parseInt(filters.maxResults);
 
