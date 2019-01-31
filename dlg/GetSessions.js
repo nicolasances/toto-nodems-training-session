@@ -27,10 +27,10 @@ exports.do = function(request) {
       if (filters.workoutId != null) {
 
         workoutFilter = {
-          '$or': {
+          '$or': [
             workoutId: filters.workoutId,
             'workouts.workoutId': filters.workoutId
-          }
+          ]
         };
       }
 
