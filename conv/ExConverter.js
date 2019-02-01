@@ -13,6 +13,9 @@ exports.converter = {
     else if (data.type == 'superset') return superset(data);
     else if (data.type == 'hourglass') return hourglass(data);
 
+    to.mood = data.mood;
+    to.muscleGroupId = data.muscleGroupId;
+
     return null;
   },
 
@@ -32,6 +35,8 @@ exports.converter = {
     else if (data.type == 'hourglass') to = hourglass(data);
 
     to.id = data._id;
+    to.mood = data.mood;
+    to.muscleGroupId = data.muscleGroupId;
 
     return to;
   },
@@ -57,6 +62,8 @@ exports.converter = {
     if (body.weight3 != null) data.weight3 = body.weight3;
     if (body.ex1 != null) data.ex1 = body.ex1;
     if (body.ex2 != null) data.ex2 = body.ex2;
+    if (body.mood != null) data.mood = body.mood;
+    if (body.muscleGroupId != null) data.muscleGroupId = body.muscleGroupId;
 
     return {$set: data};
 
