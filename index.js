@@ -17,9 +17,7 @@ var deleteSessionExercise = require('./dlg/ex/DeleteExercise');
 // Register the topics
 totoEventPublisher.registerTopic({topicName: 'trainingSessionsCreated', microservice: 'training-session'}).then(() => {}, (err) => {console.log(err);});
 
-var app = express();
-
-var api = new Controller('training-session', app, totoEventPublisher);
+var api = new Controller('training-session', totoEventPublisher);
 
 // APIs
 api.path('GET', '/sessions', getSessions);
@@ -35,9 +33,4 @@ api.path('GET', '/sessions/:id/exercises/:eid', getSessionExercise);
 api.path('PUT', '/sessions/:id/exercises/:eid', putSessionExercise);
 api.path('DELETE', '/sessions/:id/exercises/:eid', deleteSessionExercise);
 
-/***********
- * START
- **********/
-app.listen(8080, function() {
-  console.log('Training Session Microservice up and running');
-});
+api.start();
