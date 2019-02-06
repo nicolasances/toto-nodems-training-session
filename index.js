@@ -33,4 +33,4 @@ api.path('GET', '/sessions/:id/exercises/:eid', getSessionExercise);
 api.path('PUT', '/sessions/:id/exercises/:eid', putSessionExercise);
 api.path('DELETE', '/sessions/:id/exercises/:eid', deleteSessionExercise);
 
-api.start();
+api.listen();
