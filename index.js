@@ -1,5 +1,3 @@
-var express = require('express');
-var logger = require('toto-apimon-events');
 var Controller = require('toto-api-controller');
 var totoEventPublisher = require('toto-event-publisher');
 
