@@ -6,7 +6,7 @@ var MongoClient = mongo.MongoClient;
 
 exports.do = function(req) {
 
-  var id = request.params.id;
+  var id = req.params.id;
 
   return new Promise(function(success, failure) {
 
