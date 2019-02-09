@@ -52,6 +52,7 @@ exports.do = function(request) {
 
         // Post event
         let event = {
+          correlationId: request.headers['x-correlation-id'],
           sessionId: id,
           date: data.date,
           workouts: data.workouts
