@@ -54,6 +54,8 @@ class TotoEventPublisher {
       if (event.correlationId) {
         // Define the message id
         let msgId = newMsgId(event.correlationId);
+				// Add messing
+				event.msgId = msgId;
         // Log
         logger.eventOut(event.correlationId, topic, msgId);
       }
