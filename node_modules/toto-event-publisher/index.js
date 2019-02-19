@@ -52,12 +52,17 @@ class TotoEventPublisher {
 
       // Logging the event posting, ONLY if there is a correlation id
       if (event.correlationId) {
+
+				let msgId = event.msgId;
+
         // Define the message id
-        let msgId = newMsgId(event.correlationId);
+        if (msgId == null) msgId = newMsgId(event.correlationId);
+
 				// Add messing
 				event.msgId = msgId;
+
         // Log
-        logger.eventOut(event.correlationId, topic, msgId);
+        logger.eventOut(event.correlationId, topic, event.msgId);
       }
 
       // Send the event to the producer
