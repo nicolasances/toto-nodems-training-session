@@ -55,7 +55,7 @@ class TotoEventPublisher {
         // Define the message id
         let msgId = newMsgId(event.correlationId);
         // Log
-        logger.eventOut(event.correlationId, topic);
+        logger.eventOut(event.correlationId, topic, msgId);
       }
 
       // Send the event to the producer
