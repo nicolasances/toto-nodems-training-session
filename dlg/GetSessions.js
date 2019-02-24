@@ -21,7 +21,9 @@ exports.do = function(request) {
 
       if (filters.sort == 'date') options.sort.push(['date', filters.sortDir == 'desc' ? 'descending' : 'asc']);
 
+      // ----------------------------------------------------
       // Filtering
+      // ----------------------------------------------------
       // Filter per workoutId
       let workoutFilter = {};
       if (filters.workoutId != null) {
@@ -34,8 +36,13 @@ exports.do = function(request) {
         };
       }
 
-      filter = workoutFilter;
+      // Filtering per date
+      let dateFilter = {};
+      if (filters.date != null) dateFilter = {date: filters.date};
 
+      filter = {$and: [workoutFilter, dateFilter]};
+
+      // ----------------------------------------------------
       // Max results
       if (filters.maxResults != null) options.limit = parseInt(filters.maxResults);
 
