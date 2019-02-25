@@ -7,6 +7,7 @@ var MongoClient = mongo.MongoClient;
 exports.do = function(request) {
 
   var sessionId = request.params.id;
+  var filters = request.query;
 
   return new Promise(function(success, failure) {
 
