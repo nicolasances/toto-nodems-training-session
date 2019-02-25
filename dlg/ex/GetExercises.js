@@ -12,9 +12,16 @@ exports.do = function(request) {
 
     return MongoClient.connect(config.mongoUrl, function(err, db) {
 
+      let options = {};
+
+      // Sorting
+      options.sort = [];
+
+      if (filters.sort == 'order') options.sort.push(['order', filters.sortDir == 'desc' ? 'descending' : 'ascending']);
+
       // Fetch the data!
       db.db(config.dbName).collection(config.collections.exercises)
-                          .find({sessionId: sessionId})
+                          .find({sessionId: sessionId}, options)
                           .toArray(function(err, array) {
 
         db.close();
