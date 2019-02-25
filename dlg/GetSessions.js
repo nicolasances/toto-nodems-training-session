@@ -26,7 +26,7 @@ exports.do = function(request) {
       // ----------------------------------------------------
       // Filter per workoutId
       let workoutFilter = {};
-      if (filters.workoutId != null) {
+      if (filters.wid != null) {
 
         workoutFilter = {
           '$or': [
