@@ -15,6 +15,7 @@ exports.converter = {
 
     to.mood = data.mood;
     to.muscleGroupId = data.muscleGroupId;
+    to.order = data.order;
 
     return null;
   },
@@ -37,6 +38,7 @@ exports.converter = {
     to.id = data._id;
     to.mood = data.mood;
     to.muscleGroupId = data.muscleGroupId;
+    to.order = data.order;
 
     return to;
   },
