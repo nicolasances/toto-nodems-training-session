@@ -7,17 +7,19 @@ exports.converter = {
    */
   exPO: function(data) {
 
-    if (data.type == 'single') return single(data);
-    else if (data.type == 'dropset') return dropset(data);
-    else if (data.type == 'striping') return striping(data);
-    else if (data.type == 'superset') return superset(data);
-    else if (data.type == 'hourglass') return hourglass(data);
+    let to = {};
+
+    if (data.type == 'single') to =  single(data);
+    else if (data.type == 'dropset') to = dropset(data);
+    else if (data.type == 'striping') to = striping(data);
+    else if (data.type == 'superset') to = superset(data);
+    else if (data.type == 'hourglass') to = hourglass(data);
 
     to.mood = data.mood;
     to.muscleGroupId = data.muscleGroupId;
     to.order = data.order;
 
-    return null;
+    return to;
   },
 
   /**
