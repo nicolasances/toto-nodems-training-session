@@ -19,7 +19,7 @@ exports.do = function(request) {
       // Sorting
       options.sort = [];
 
-      if (filters.sort == 'date') options.sort.push(['date', filters.sortDir == 'desc' ? 'descending' : 'asc']);
+      if (filters.sort == 'date') options.sort.push(['date', filters.sortDir == 'desc' ? 'descending' : 'ascending']);
 
       // ----------------------------------------------------
       // Filtering
