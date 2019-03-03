@@ -28,8 +28,6 @@ exports.converter = {
 
     let workouts = [];
 
-    console.log(data);
-
     // Old sessions admitted a single workout per session
     if (data.workoutId != null) workouts.push({planId: data.planId, workoutId: data.workoutId});
     // while new sessions admit more workouts per session
@@ -41,7 +39,9 @@ exports.converter = {
       workouts: workouts,
       completed: data.completed,
       year: data.year,
-      week: data.week
+      week: data.week,
+      fatigue: data.postWorkoutFatigue,
+      pain: data.postWorkoutPain
     }
   }
 
