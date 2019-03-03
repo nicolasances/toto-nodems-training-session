@@ -40,7 +40,11 @@ exports.do = function(request) {
       let dateFilter = {};
       if (filters.date != null) dateFilter = {date: filters.date};
 
-      filter = {$and: [workoutFilter, dateFilter]};
+      // Filtering per dateFrom
+      let dateFromFilter = {};
+      if (filters.dateFrom != null) dateFromFilter = {date: {$gte: filters.dateFrom}};
+
+      filter = {$and: [workoutFilter, dateFilter, dateFromFilter]};
 
       // ----------------------------------------------------
       // Max results
