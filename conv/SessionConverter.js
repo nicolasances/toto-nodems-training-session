@@ -15,6 +15,7 @@ exports.converter = {
       completed: false,
       year: parseInt(sessionDate.format('YYYY')),
       week: parseInt(sessionDate.format('WW')),
+      startedAt: sessionDate.format('HH:mm'),
       score: 0 // legacy - TODO to be removed when removing /gym
     };
   },
@@ -41,7 +42,10 @@ exports.converter = {
       year: data.year,
       week: data.week,
       fatigue: data.postWorkoutFatigue,
-      pain: data.postWorkoutPain
+      pain: data.postWorkoutPain,
+      startedAt: data.startedAt, // format is HH:mm
+      finishedAt: data.finishedAt, // format is HH:mm
+      timeInMinutes: data.timeInMinutes == null ? 50 : data.timeInMinutes
     }
   }
 
