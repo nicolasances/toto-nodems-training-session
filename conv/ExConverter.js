@@ -41,6 +41,7 @@ exports.converter = {
     to.mood = data.mood;
     to.muscleGroupId = data.muscleGroupId;
     to.order = data.order;
+    to.completed = data.completed;
 
     return to;
   },
