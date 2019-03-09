@@ -15,7 +15,7 @@ exports.do = function(request) {
 
       // Fetch the data!
       db.db(config.dbName).collection(config.collections.exercises)
-                          .updateOne({_id: new mongo.ObjectId(eId)}, converter.update(body))
+                          .updateOne({_id: new mongo.ObjectId(eId)}, converter.converter.update(body))
                           .then((err, result) => {
 
         db.close();
