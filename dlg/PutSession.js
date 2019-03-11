@@ -33,11 +33,14 @@ exports.do = function(request) {
         // Success
         success({});
 
-        // Post event
-        totoEventPublisher.publishEvent('trainingSessionsCompleted', {
-          correlationId: cid,
-          sessionId: sessionId
-        });
+        // Post event, in case the session has been completed
+        if (data.completed) {
+
+          totoEventPublisher.publishEvent('trainingSessionsCompleted', {
+            correlationId: cid,
+            sessionId: sessionId
+          });
+        }
 
       });
     });
