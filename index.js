@@ -4,6 +4,7 @@ var totoEventPublisher = require('toto-event-publisher');
 var postSession = require('./dlg/PostSession');
 var getSessions = require('./dlg/GetSessions');
 var getSession = require('./dlg/GetSession');
+var putSession = require('./dlg/PutSession');
 var deleteSession = require('./dlg/DeleteSession');
 
 var getSessionExercises = require('./dlg/ex/GetExercises');
@@ -26,6 +27,7 @@ api.path('POST', '/sessions', postSession);
 
 api.path('GET', '/sessions/:id', getSession);
 api.path('DELETE', '/sessions/:id', deleteSession);
+api.path('PUT', '/sessions/:id', putSession);
 
 api.path('GET', '/sessions/:id/exercises', getSessionExercises);
 api.path('POST', '/sessions/:id/exercises', postSessionExercise);
