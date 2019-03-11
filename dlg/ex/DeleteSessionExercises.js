@@ -8,7 +8,7 @@ var MongoClient = mongo.MongoClient;
  */
 exports.do = function(request) {
 
-  var sid = request.params.sid;
+  var sid = request.params.id;
 
   return new Promise(function(success, failure) {
 
