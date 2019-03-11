@@ -17,8 +17,6 @@ exports.do = function(request) {
 
   return new Promise((success, failure) => {
 
-    if (data.completed != null && data.completed && data.finishedAt == null) {failure({code: 400, message: 'Missing "finishedAt" in the body: this is a mandatory field when completing a session.'}); return};
-
     // Save the new session and trigger the event
     return MongoClient.connect(config.mongoUrl, function(err, db) {
 

@@ -15,7 +15,7 @@ exports.converter = {
       completed: false,
       year: parseInt(sessionDate.format('YYYY')),
       week: parseInt(sessionDate.format('WW')),
-      startedAt: sessionDate.format('HH:mm'),
+      startedAt: moment().tz('Europe/Rome').format('HH:mm'),
       score: 0 // legacy - TODO to be removed when removing /gym
     };
   },
@@ -59,6 +59,7 @@ exports.converter = {
     let upd = {};
 
     if (data.completed != null) upd.completed = data.completed;
+    if (data,completed) upd.finishedAt = moment().tz('Europe/Rome').format('HH:mm');
     if (data.finishedAt != null) upd.finishedAt = data.finishedAt;
     if (data.timeInMinutes != null) upd.timeInMinutes = data.timeInMinutes;
 
