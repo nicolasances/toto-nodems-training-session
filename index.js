@@ -16,6 +16,7 @@ var deleteSessionExercises = require('./dlg/ex/DeleteSessionExercises');
 // Register the topics
 totoEventPublisher.registerTopic({topicName: 'trainingSessionsCreated', microservice: 'training-session'}).then(() => {}, (err) => {console.log(err);});
 totoEventPublisher.registerTopic({topicName: 'trainingSessionsDeleted', microservice: 'training-session'}).then(() => {}, (err) => {console.log(err);});
+totoEventPublisher.registerTopic({topicName: 'trainingSessionsCompleted', microservice: 'training-session'}).then(() => {}, (err) => {console.log(err);});
 
 var api = new Controller('training-session', totoEventPublisher);
 

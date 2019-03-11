@@ -47,6 +47,23 @@ exports.converter = {
       finishedAt: data.finishedAt, // format is HH:mm
       timeInMinutes: data.timeInMinutes == null ? 50 : data.timeInMinutes
     }
+  },
+
+  /**
+   * Updates the session
+   */
+  updateSession: (data) => {
+
+    if (data == null) return {};
+
+    let upd = {};
+
+    if (data.completed != null) upd.completed = data.completed;
+    if (data.finishedAt != null) upd.finishedAt = data.finishedAt;
+    if (data.timeInMinutes != null) upd.timeInMinutes = data.timeInMinutes;
+
+    return {$set: upd};
+
   }
 
 }
