@@ -59,7 +59,7 @@ exports.converter = {
     let upd = {};
 
     if (data.completed != null) upd.completed = data.completed;
-    if (data,completed) upd.finishedAt = moment().tz('Europe/Rome').format('HH:mm');
+    if (data.completed) upd.finishedAt = moment().tz('Europe/Rome').format('HH:mm');
     if (data.finishedAt != null) upd.finishedAt = data.finishedAt;
     if (data.timeInMinutes != null) upd.timeInMinutes = data.timeInMinutes;
 
