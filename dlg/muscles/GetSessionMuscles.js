@@ -16,7 +16,7 @@ exports.do = function(req) {
       }
 
       // Get an array out of the set
-      let result = Array.from(muscles);
+      let result = Array.from(muscles).filter((el) => {return el != null});
 
       success({muscles: result});
 
