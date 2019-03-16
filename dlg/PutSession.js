@@ -37,7 +37,7 @@ exports.do = function(request) {
         db.close();
 
         // Success
-        success({});
+        success({sessionId: sessionId, result: result, body: request.body});
 
         // Post event, in case the session has been completed
         if (data.completed) {
