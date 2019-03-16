@@ -28,8 +28,6 @@ exports.do = function(request) {
                                       {$set: {"muscles.$.painLevel": body.painLevel}} )
                           .then((result) => {
 
-        console.log(result);
-
         db.close();
 
         success({});
