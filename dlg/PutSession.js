@@ -18,8 +18,12 @@ exports.do = function(request) {
 
   return new Promise((success, failure) => {
 
+    console.log('Received request');
+
     // Validate
     let validationResult = validator.do(request);
+
+    console.log(validationResult);
 
     if (validatonResult.code == 400) {failure(validationResult); return;}
 
