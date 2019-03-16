@@ -18,14 +18,10 @@ exports.do = function(request) {
 
   return new Promise((success, failure) => {
 
-    console.log('Received request');
-
     // Validate
     let validationResult = validator.do(request);
 
-    console.log(validationResult);
-
-    if (validatonResult.code == 400) {failure(validationResult); return;}
+    if (validationResult.code == 400) {failure(validationResult); return;}
 
     // Save the new session and trigger the event
     return MongoClient.connect(config.mongoUrl, function(err, db) {
@@ -39,8 +35,6 @@ exports.do = function(request) {
       db.db(config.dbName).collection(config.collections.sessions)
                           .updateOne({_id: new mongo.ObjectId(sessionId)}, updateStatement)
                           .then((res) => {
-
-        console.log('Done');
 
         db.close();
 
