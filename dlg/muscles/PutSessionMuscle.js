@@ -26,7 +26,7 @@ exports.do = function(request) {
       db.db(config.dbName).collection(config.collections.exercises)
                           .updateOne( {_id: new mongo.ObjectId(sessionId), "muscles.muscle": muscle},
                                       {$set: {"muscles.$.painLevel": body.painLevel}} )
-                          .then((err, result) => {
+                          .then((result) => {
 
         console.log(result);
 
