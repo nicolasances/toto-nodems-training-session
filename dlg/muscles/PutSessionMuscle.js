@@ -30,7 +30,7 @@ exports.do = function(request) {
 
         db.close();
 
-        success(result);
+        success({modified: result.nModified});
 
       });
     });
