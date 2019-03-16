@@ -45,7 +45,8 @@ exports.converter = {
       pain: data.postWorkoutPain,
       startedAt: data.startedAt, // format is HH:mm
       finishedAt: data.finishedAt, // format is HH:mm
-      timeInMinutes: data.timeInMinutes == null ? 50 : data.timeInMinutes
+      timeInMinutes: data.timeInMinutes == null ? 50 : data.timeInMinutes,
+      muscles: data.muscles
     }
   },
 
