@@ -63,6 +63,10 @@ exports.converter = {
     if (data.finishedAt != null) upd.finishedAt = data.finishedAt;
     if (data.timeInMinutes != null) upd.timeInMinutes = data.timeInMinutes;
 
+    // Muscles
+    // Required: an array [{muscle: <musclename>, pain: <painlevel as integer>}]
+    if (data.muscles != null) upd.muscles = data.muscles;
+
     return {$set: upd};
 
   }

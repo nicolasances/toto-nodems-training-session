@@ -2,6 +2,7 @@ var mongo = require('mongodb');
 var config = require('../config');
 var converter = require('../conv/SessionConverter');
 var totoEventPublisher = require('toto-event-publisher');
+var validator = require('./val/PutSessionValidator')
 
 var MongoClient = mongo.MongoClient;
 
@@ -16,6 +17,11 @@ exports.do = function(request) {
   var cid = request.headers['x-correlation-id'];
 
   return new Promise((success, failure) => {
+
+    // Validate
+    let validationResult = validator.do(request);
+
+    if (validatonResult.code == 400) {failure(validationResult); return;}
 
     // Save the new session and trigger the event
     return MongoClient.connect(config.mongoUrl, function(err, db) {
