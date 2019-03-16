@@ -10,7 +10,7 @@ var MongoClient = mongo.MongoClient;
 exports.do = function(request) {
 
   var sessionId = request.params.id;
-  var muscle = request.params.muscle;
+  var muscle = request.params.mid;
   var body = request.body;
 
   return new Promise(function(success, failure) {
@@ -28,7 +28,7 @@ exports.do = function(request) {
                                       {$set: {"muscles.$.painLevel": body.painLevel}} )
                           .then((err, result) => {
 
-                            console.log(result);
+        console.log(result);
 
         db.close();
 

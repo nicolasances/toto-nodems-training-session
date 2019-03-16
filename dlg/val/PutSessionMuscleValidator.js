@@ -5,7 +5,7 @@
 exports.do = (req) => {
 
   let body = req.body;
-  let muscle = req.params.muscle;
+  let muscle = req.params.mid;
 
   if (body == null) return {code: 400, message: 'No body passed'};
   if (muscle == null) return {code: 400, message: 'No "muscle" passed in the path. Should be PUT /sessions/:id/muscles/:muscle'};

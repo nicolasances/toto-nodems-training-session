@@ -8,6 +8,7 @@ var putSession = require('./dlg/PutSession');
 var deleteSession = require('./dlg/DeleteSession');
 
 var getSessionMuscles = require('./dlg/muscles/GetSessionMuscles');
+var putSessionMuscle = require('./dlg/muscles/PutSessionMuscle');
 
 var getSessionExercises = require('./dlg/ex/GetExercises');
 var postSessionExercise = require('./dlg/ex/PostExercise');
@@ -32,6 +33,7 @@ api.path('DELETE', '/sessions/:id', deleteSession);
 api.path('PUT', '/sessions/:id', putSession);
 
 api.path('GET', '/sessions/:id/muscles', getSessionMuscles);
+api.path('PUT', '/sessions/:id/muscles/:mid', putSessionMuscle);
 
 api.path('GET', '/sessions/:id/exercises', getSessionExercises);
 api.path('POST', '/sessions/:id/exercises', postSessionExercise);
