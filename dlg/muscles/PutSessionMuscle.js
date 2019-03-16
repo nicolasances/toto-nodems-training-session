@@ -1,6 +1,7 @@
 var mongo = require('mongodb');
 var config = require('../../config');
 var validator = require('../val/PutSessionMuscleValidator');
+var totoEventPublisher = require('toto-event-publisher');
 
 var MongoClient = mongo.MongoClient;
 
@@ -12,6 +13,7 @@ exports.do = function(request) {
   var sessionId = request.params.id;
   var muscle = request.params.mid;
   var body = request.body;
+  var cid = request.headers['x-correlation-id'];
 
   return new Promise(function(success, failure) {
 
@@ -31,6 +33,14 @@ exports.do = function(request) {
         db.close();
 
         success({sessionId: sessionId, muscle: muscle, result: result, body: request.body});
+
+        // Publish the event
+        totoEventPublisher.publishEvent('trainingMusclePainChanged', {
+          correlationId: cid,
+          sessionId: sessionId,
+          muscle: muscle,
+          painLevel: body.painLevel
+        });
 
       });
     });
