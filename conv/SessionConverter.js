@@ -61,6 +61,7 @@ exports.converter = {
 
     if (data.completed != null) upd.completed = data.completed;
     if (data.completed) upd.finishedAt = moment().tz('Europe/Rome').format('HH:mm');
+    if (data.startedAt != null) upd.startedAt = data.startedAt;
     if (data.finishedAt != null) upd.finishedAt = data.finishedAt;
     if (data.timeInMinutes != null) upd.timeInMinutes = data.timeInMinutes;
     if (data.postWorkoutPain != null) upd.postWorkoutPain = data.postWorkoutPain;
