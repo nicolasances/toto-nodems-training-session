@@ -29,8 +29,6 @@ exports.do = function(request) {
       // 1. Convert the data
       let updateStatement = converter.converter.updateSession(data);
 
-      console.log(updateStatement);
-
       // 2. Insert the data
       db.db(config.dbName).collection(config.collections.sessions)
                           .updateOne({_id: new mongo.ObjectId(sessionId)}, updateStatement)
