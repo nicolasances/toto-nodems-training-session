@@ -63,6 +63,8 @@ exports.converter = {
     if (data.completed) upd.finishedAt = moment().tz('Europe/Rome').format('HH:mm');
     if (data.finishedAt != null) upd.finishedAt = data.finishedAt;
     if (data.timeInMinutes != null) upd.timeInMinutes = data.timeInMinutes;
+    if (data.postWorkoutPain != null) upd.postWorkoutPain = data.postWorkoutPain;
+    if (data.postWorkoutFatigue != null) upd.postWorkoutFatigue = data.postWorkoutFatigue;
 
     // Muscles
     // Required: an array [{muscle: <musclename>, pain: <painlevel as integer>}]
