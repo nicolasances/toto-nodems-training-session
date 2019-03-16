@@ -30,7 +30,7 @@ exports.do = function(request) {
 
         db.close();
 
-        success(result);
+        success({sessionId: sessionId, muscle: muscle, result: result, body: request.body});
 
       });
     });
