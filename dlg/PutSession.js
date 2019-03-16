@@ -24,7 +24,7 @@ exports.do = function(request) {
     if (validationResult.code == 400) {failure(validationResult); return;}
 
     // Save the new session and trigger the event
-    return MongoClient.connect(config.mongoUrl, function(err, db) {
+    return MongoClient.connect(config.mongoUrl, { useNewUrlParser: true }, function(err, db) {
 
       // 1. Convert the data
       let updateStatement = converter.converter.updateSession(data);
